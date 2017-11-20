@@ -1,0 +1,10 @@
+<%= form_for :calc, url: { action: :new }, method: :get do |f|   %>
+    <%= number_field_tag :a, params[:a] %>
+    <%= select_tag :operation, options_for_select([['+', :sum], ['-',:sub],['*',:mul],['/', :div]], params[:operation]) %>
+    <%= number_field_tag :b, params[:b] %>
+    <%= f.submit 'Calculate!' %>
+<% end %>
+
+<% unless @result.nil? %>
+    <p> = <%= @result %> </p>
+<% end %>
