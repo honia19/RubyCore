@@ -1,9 +1,7 @@
 class CalcController < ApplicationController
-  def index
-  end
 
   def new
-    @result = Calculator.send(params[:operation], *[params[:a], params[:b]])
-    render :index
+    @result = Calculator.calculate( params[:op],params[:a],params[:b])
+    render "calc/index"
   end
 end

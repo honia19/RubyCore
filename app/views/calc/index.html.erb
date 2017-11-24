@@ -1,10 +1,8 @@
-<%= form_for :calc, url: { action: :new }, method: :get do |f|   %>
-    <%= number_field_tag :a, params[:a] %>
-    <%= select_tag :operation, options_for_select([['+', :sum], ['-',:sub],['*',:mul],['/', :div]], params[:operation]) %>
-    <%= number_field_tag :b, params[:b] %>
+<%= form_for :calc, url: { action: :new }, method: :post do |f|   %>
+    <p>First num: <%= number_field_tag :a, params[:a] %></p>
+    <p>Opration: <%= text_field_tag :op, params[:op]%></p>
+    <p>Second num: <%= number_field_tag :b, params[:b] %></p>
     <%= f.submit 'Calculate!' %>
+    <p>Result:<%= text_field_tag :result, @result %></p>
 <% end %>
 
-<% unless @result.nil? %>
-    <p> = <%= @result %> </p>
-<% end %>
